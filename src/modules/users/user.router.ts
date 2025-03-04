@@ -1,13 +1,14 @@
 import express from "express";
 import { userControler } from "./user.controler";
-import { userValidationSchema } from "../../middleware/userValidation";
+
 import { userValidation } from "./user.validation";
+import { validateSchema } from "../../middleware/userValidation";
 
 const router = express.Router();
 
 router.post(
   "/",
-  userValidationSchema(userValidation),
+  validateSchema(userValidation),
   userControler.createUserControler
 );
 
