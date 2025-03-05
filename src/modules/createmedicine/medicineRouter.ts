@@ -11,6 +11,11 @@ router.post(
   validateSchema(MedicineFormDataSchema),
   medicineControler.createMedicineControler
 );
-
+router.patch("/update-medicine/:id", medicineControler.updateMedicineControler);
 router.get("/get-medicine", medicineControler.getAllMedicineControler);
+router.get(
+  "/getSingalMedicine/:id",
+  medicineControler.getSingalMedicineControler
+);
+router.delete("/delete-medicne/:id", medicineControler.medicineDeleteServices);
 export const medicineRouter = router;
