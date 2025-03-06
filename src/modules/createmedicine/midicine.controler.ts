@@ -74,6 +74,23 @@ const filterMedicineControler = catchAsyncFun(async (req, res) => {
   });
 });
 
+const medicineSearchControler = catchAsyncFun(async (req, res) => {
+  const query = req.params.text;
+  const result = await medicineModel.find({
+    $or: [
+      { name: { $regex: query, $options: "i" } },
+      { category: { $regex: query, $options: "i" } },
+      { description: { $regex: query, $options: "i" } },
+      { "manufacturer_details.name": { $regex: query, $options: "i" } },
+    ],
+  });
+  sendResponse(res, {
+    status: 200,
+    message: "search medicine",
+    data: result,
+  });
+});
+
 export const medicineControler = {
   createMedicineControler,
   getAllMedicineControler,
@@ -81,4 +98,5 @@ export const medicineControler = {
   getSingalMedicineControler,
   medicineDeleteServices,
   filterMedicineControler,
+  medicineSearchControler,
 };

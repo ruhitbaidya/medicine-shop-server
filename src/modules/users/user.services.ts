@@ -1,4 +1,6 @@
 import { config } from "../../config/config";
+import { medicineModel } from "../createmedicine/medicineModel";
+import { OrderModel } from "../payment/payment.modal";
 import { Tuser } from "./user.interface";
 import { userModel } from "./user.model";
 import bcrypt from "bcrypt";
@@ -22,7 +24,28 @@ const getSingalUserServices = async (email: string) => {
   const result = await userModel.findOne({ email }, { password: 0 });
   return result;
 };
+const medicineOverviewServices = async () => {
+  const totalOrder = await OrderModel.find().countDocuments();
+  const pendingOrder = await OrderModel.find().countDocuments({
+    status: "pending",
+  });
+  const totalMedicine = await medicineModel.aggregate([
+    {
+      $group: {
+        _id: null,
+        totalStock: { $sum: "$stock_availability" },
+      },
+    },
+  ]);
+
+  return {
+    totalOrder,
+    pendingOrder,
+    totalMedicine,
+  };
+};
 export const userServices = {
   createUserServices,
   getSingalUserServices,
+  medicineOverviewServices,
 };
