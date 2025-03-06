@@ -8,7 +8,7 @@ const rootRouter = express.Router();
 
 const routes = [
   {
-    path: "/create-user",
+    path: "/",
     rout: userRouter,
   },
   {

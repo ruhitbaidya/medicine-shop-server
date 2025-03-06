@@ -18,6 +18,11 @@ const createUserServices = async (user: Tuser) => {
   }
 };
 
+const getSingalUserServices = async (email: string) => {
+  const result = await userModel.findOne({ email }, { password: 0 });
+  return result;
+};
 export const userServices = {
   createUserServices,
+  getSingalUserServices,
 };

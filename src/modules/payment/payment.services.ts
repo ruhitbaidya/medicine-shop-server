@@ -1,6 +1,6 @@
 import Stripe from "stripe";
-import { IMedicine, TPayment } from "./payment.interface";
-import OrderModel from "./payment.modal";
+import { TOrderInterface } from "./payment.interface";
+import { OrderModel } from "./payment.modal";
 const stripe = new Stripe(process.env.SECRATE_KEY as string);
 const createPaymentInfoServices = async (amount: number) => {
   try {
@@ -15,7 +15,7 @@ const createPaymentInfoServices = async (amount: number) => {
   }
 };
 
-const confirmPaymentOrederServices = async (data: IMedicine) => {
+const confirmPaymentOrederServices = async (data: TOrderInterface) => {
   const result = await OrderModel.create(data);
   return result;
 };

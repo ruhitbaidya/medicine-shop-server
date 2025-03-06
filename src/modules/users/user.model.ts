@@ -3,6 +3,10 @@ import { Tuser } from "./user.interface";
 import { CuError } from "../../error/ConstErr";
 
 const UserSchema = new Schema<Tuser>({
+  name: {
+    type: String,
+    required: [true, "Your Must Provied Your Name"],
+  },
   email: {
     type: String,
     required: [true, "Your Must Provied Your Email"],

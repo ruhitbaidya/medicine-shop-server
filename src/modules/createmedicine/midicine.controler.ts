@@ -63,10 +63,22 @@ const medicineDeleteServices = catchAsyncFun(async (req, res) => {
     data: result,
   });
 });
+
+const filterMedicineControler = catchAsyncFun(async (req, res) => {
+  console.log(req.body);
+  const result = await medicineServices.filterMedicineServices(req.body);
+  sendResponse(res, {
+    status: 200,
+    message: "Data Filter Success",
+    data: result,
+  });
+});
+
 export const medicineControler = {
   createMedicineControler,
   getAllMedicineControler,
   updateMedicineControler,
   getSingalMedicineControler,
   medicineDeleteServices,
+  filterMedicineControler,
 };

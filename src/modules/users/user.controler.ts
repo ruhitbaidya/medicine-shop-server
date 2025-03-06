@@ -11,6 +11,17 @@ const createUserControler = catchAsyncFun(async (req, res) => {
   });
 });
 
+const getSiUserControler = catchAsyncFun(async (req, res) => {
+  const email = req.params.email;
+  console.log(email);
+  const result = await userServices.getSingalUserServices(email);
+  sendResponse(res, {
+    status: 202,
+    message: "User Get Successfully",
+    data: result,
+  });
+});
 export const userControler = {
   createUserControler,
+  getSiUserControler,
 };

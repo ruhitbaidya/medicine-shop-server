@@ -17,5 +17,7 @@ router.get(
   "/getSingalMedicine/:id",
   medicineControler.getSingalMedicineControler
 );
+
+router.post("/filter", medicineControler.filterMedicineControler);
 router.delete("/delete-medicne/:id", medicineControler.medicineDeleteServices);
 export const medicineRouter = router;
