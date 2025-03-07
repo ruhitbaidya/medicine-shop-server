@@ -1,5 +1,8 @@
 import { catchAsyncFun } from "../../utils/asyncFun";
+import { sendMail } from "../../utils/sendMail";
+
 import { sendResponse } from "../../utils/sendResponse";
+import { userModel } from "../users/user.model";
 import { OrderModel } from "./payment.modal";
 import { paymentServices } from "./payment.services";
 
@@ -36,7 +39,18 @@ const getAllOrderControler = catchAsyncFun(async (req, res) => {
 
 const updateOrderStatus = catchAsyncFun(async (req, res) => {
   const data = req.body;
-  console.log(data);
+  console.log(data, "this");
+  const findOrder = await OrderModel.findOne({ _id: data.id });
+  if (findOrder) {
+    const findUser = await userModel.findOne({ _id: findOrder?.user });
+    if (findUser) {
+      sendMail({
+        email: findUser?.email,
+        text: data?.status,
+        name: findUser?.name,
+      });
+    }
+  }
   const result = await OrderModel.findByIdAndUpdate(
     { _id: data.id },
     { $set: { status: data.status } }
