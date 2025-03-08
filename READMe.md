@@ -7,7 +7,7 @@ The **Medicine E-Commerce Shop Backend** is a RESTful API built with **Node.js**
 
 ## 🚀 Live Deployment
 
-- **Backend API**: [https://medicine-shop-api.vercel.app](https://medicine-client-rust.vercel.app/)
+- **Live**: [https://medicine-client-rust.vercel.app/](https://medicine-client-rust.vercel.app/)
 
 ---
 
@@ -65,33 +65,6 @@ For testing purposes, use the following admin credentials:
 - **bcryptjs**: For password hashing.
 - **CORS**: For handling cross-origin requests.
 - **Dotenv**: For managing environment variables.
-
----
-
-## 🖥️ API Endpoints
-
-### Authentication:
-
-- **POST `/register`**: Register a new user.
-- **POST `/login`**: Log in a user and return a JWT token.
-
-### Medicines:
-
-- **GET `/get-medicine`**: Fetch all medicines.
-- **POST `/add-medicine`**: Add a new medicine (Admin only).
-- **PATCH `/update-medicine/:id`**: Update a medicine (Admin only).
-- **DELETE `/delete-medicine/:id`**: Delete a medicine (Admin only).
-
-### Orders:
-
-- **GET `/getOrder`**: Fetch all orders (Admin only).
-- **GET `/getIdOrder/:userId`**: Fetch orders for a specific user.
-- **POST `/placeOrder`**: Place a new order.
-- **PATCH `/updatestatus`**: Update order status (Admin only).
-
-### Users:
-
-- **GET `/getallUser`**: Fetch all users (Admin only).
 
 ---
 
