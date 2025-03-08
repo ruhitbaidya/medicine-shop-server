@@ -23,7 +23,6 @@ export const adminverifyUser = async (
     if (!users.email) {
       res.status(400).json({ success: false, message: "Invalid token" });
     }
-    console.log(users);
     const findUser = await userModel.findOne({ email: users.email });
     if (!findUser) {
       res.status(404).json({ success: false, message: "User not found" });
