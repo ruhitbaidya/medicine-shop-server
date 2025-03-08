@@ -46,8 +46,8 @@ const getAlluserInfoOrder = catchAsyncFun(async (req, res) => {
   const id = req.params.id;
   const result = await OrderModel.find(
     { user: id },
-    { shippingAddress: 0, medicine: 0 }
-  );
+    { shippingAddress: 0 }
+  ).populate("medicine.id");
   sendResponse(res, {
     status: 200,
     message: "get order ",
