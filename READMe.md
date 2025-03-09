@@ -1,13 +1,13 @@
 # Medicine E-Commerce Shop (Backend)
-
-![Medicine E-Commerce Shop Logo](https://via.placeholder.com/150x50?text=Medicine+Shop+Logo)  
+ 
 The **Medicine E-Commerce Shop Backend** is a RESTful API built with **Node.js**, **Express**, and **MongoDB**. It powers the frontend application by handling user authentication, medicine management, order processing, and more. This backend ensures secure and efficient data management for the Medicine E-Commerce Shop.
 
 ---
 
 ## 🚀 Live Deployment
 
-- **Live**: [https://medicine-client-rust.vercel.app/](https://medicine-client-rust.vercel.app/)
+- **Frondend Live**: [https://medicine-client-rust.vercel.app/](https://medicine-client-rust.vercel.app/)
+- **Backend Live**: [https://medicine-server-one.vercel.app/](https://medicine-server-one.vercel.app/)
 
 ---
 
