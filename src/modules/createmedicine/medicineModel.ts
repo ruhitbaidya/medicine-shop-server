@@ -13,6 +13,8 @@ const ManufacturerDetailsSchema = new mongoose.Schema({
 const MedicineSchema = new mongoose.Schema({
   name: { type: String, required: true }, // Medicine name
   description: { type: String, required: true }, // Medicine description
+  discount : {type : Boolean, default : false},
+  image : {type : String, required : true},
   price: { type: Number, required: true, min: 0 }, // Medicine price (must be a positive number)
   stock_availability: { type: Number, required: true, min: 0 }, // Stock availability (must be a positive number)
   required_prescription: { type: Boolean, required: true }, // Whether a prescription is required

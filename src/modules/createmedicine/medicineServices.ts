@@ -49,9 +49,20 @@ const filterMedicineServices = async (data: any) => {
   const result = await medicineModel.find(filter).sort(sort);
   return result;
 };
+
+
+
+const hightRateMedicineServices = async()=>{
+  const query = {
+    price : {$gt : 10}
+  }
+  const result = await medicineModel.find(query).limit(4);
+  return result;
+}
 export const medicineServices = {
   medicineCreateServices,
   medicineUpdateServices,
   medicineGetSingalServices,
   filterMedicineServices,
+  hightRateMedicineServices
 };

@@ -91,6 +91,17 @@ const medicineSearchControler = catchAsyncFun(async (req, res) => {
   });
 });
 
+
+const highRatePriceMedicineControler = catchAsyncFun(async(req, res)=>{
+  const result = await medicineServices.hightRateMedicineServices()
+  sendResponse(res, 
+    {
+      status: 200,
+      message: "Get High Rate Medicne",
+      data: result,
+    
+  })
+})
 export const medicineControler = {
   createMedicineControler,
   getAllMedicineControler,
@@ -99,4 +110,5 @@ export const medicineControler = {
   medicineDeleteServices,
   filterMedicineControler,
   medicineSearchControler,
+  highRatePriceMedicineControler
 };

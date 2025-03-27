@@ -10,6 +10,8 @@ export interface MedicineFormData {
   price: number | string; // Allow both number and string for flexibility
   stock_availability: number | string; // Allow both number and string for flexibility
   required_prescription: boolean;
+  discount : boolean,
+  image : string,
   manufacturer_details: ManufacturerDetails;
   expiry_date: string;
 }

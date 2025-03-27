@@ -32,4 +32,5 @@ router.delete(
   medicineControler.medicineDeleteServices
 );
 router.get("/search/:text", medicineControler.medicineSearchControler);
+router.get("/get-hight-price-medicine", medicineControler.highRatePriceMedicineControler)
 export const medicineRouter = router;
