@@ -54,7 +54,7 @@ const filterMedicineServices = async (data: any) => {
 
 const hightRateMedicineServices = async()=>{
   const query = {
-    price : {$gt : 10}
+    price : {$gt : 4000}
   }
   const result = await medicineModel.find(query).limit(4);
   return result;
