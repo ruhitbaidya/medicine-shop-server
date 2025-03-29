@@ -30,6 +30,7 @@ const getAllOrderControler = catchAsyncFun(async (req, res) => {
     path: "medicine.id",
     model: "medicine",
   });
+  console.log(result)
   sendResponse(res, {
     status: 200,
     message: "get all order",
