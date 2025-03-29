@@ -42,9 +42,30 @@ const filterMedicineServices = async (data) => {
     const result = await medicineModel_1.medicineModel.find(filter).sort(sort);
     return result;
 };
+const hightRateMedicineServices = async () => {
+    const query = {
+        price: { $gt: 4000 },
+    };
+    const result = await medicineModel_1.medicineModel.find(query).limit(4);
+    return result;
+};
+const makeDiscountMedicineServices = async (medicineId, discount) => {
+    if (!medicineId || medicineId.length === 0) {
+        throw new Error("Does not send any product id");
+    }
+    const result = await medicineModel_1.medicineModel.updateMany({ _id: { $in: medicineId } }, { $set: { discountPercentage: discount, discount: true } });
+    return result;
+};
+const discountMedicineServices = async () => {
+    const result = await medicineModel_1.medicineModel.find({ discount: true });
+    return result;
+};
 exports.medicineServices = {
     medicineCreateServices,
     medicineUpdateServices,
     medicineGetSingalServices,
     filterMedicineServices,
+    hightRateMedicineServices,
+    discountMedicineServices,
+    makeDiscountMedicineServices,
 };

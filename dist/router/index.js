@@ -8,6 +8,8 @@ const user_router_1 = require("../modules/users/user.router");
 const user_login_router_1 = require("../modules/auth/user.login.router");
 const medicineRouter_1 = require("../modules/createmedicine/medicineRouter");
 const payment_router_1 = require("../modules/payment/payment.router");
+const blogs_router_1 = require("../modules/blogs/blogs.router");
+const subscribe_router_1 = require("../modules/subscribe/subscribe.router");
 const rootRouter = express_1.default.Router();
 const routes = [
     {
@@ -25,6 +27,14 @@ const routes = [
     {
         path: "/",
         rout: payment_router_1.paymentRoute,
+    },
+    {
+        path: "/",
+        rout: blogs_router_1.blogRouter,
+    },
+    {
+        path: "/",
+        rout: subscribe_router_1.subscribeRouter,
     },
 ];
 routes.forEach((item) => rootRouter.use(`/api/v1${item.path}`, item.rout));
