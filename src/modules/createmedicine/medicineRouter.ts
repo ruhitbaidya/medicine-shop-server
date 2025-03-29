@@ -31,6 +31,14 @@ router.delete(
   adminverifyUser,
   medicineControler.medicineDeleteServices
 );
+router.patch(
+  "/discount-medicine-set",
+  medicineControler.makeDiscountMedicineControler
+);
+router.get("/discount-medicine", medicineControler.discountMedicineControler);
 router.get("/search/:text", medicineControler.medicineSearchControler);
-router.get("/get-hight-price-medicine", medicineControler.highRatePriceMedicineControler)
+router.get(
+  "/get-hight-price-medicine",
+  medicineControler.highRatePriceMedicineControler
+);
 export const medicineRouter = router;

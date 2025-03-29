@@ -1,3 +1,5 @@
+import mongoose from "mongoose";
+
 export interface ManufacturerDetails {
   name: string;
   address: string;
@@ -10,8 +12,9 @@ export interface MedicineFormData {
   price: number | string; // Allow both number and string for flexibility
   stock_availability: number | string; // Allow both number and string for flexibility
   required_prescription: boolean;
-  discount : boolean,
-  image : string,
+  discount: boolean;
+  image: string;
+  discountPercentage: number;
   manufacturer_details: ManufacturerDetails;
-  expiry_date: string;
+  expiry_date: Date;
 }

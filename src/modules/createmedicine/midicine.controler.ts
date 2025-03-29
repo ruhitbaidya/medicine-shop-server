@@ -91,17 +91,36 @@ const medicineSearchControler = catchAsyncFun(async (req, res) => {
   });
 });
 
+const highRatePriceMedicineControler = catchAsyncFun(async (req, res) => {
+  const result = await medicineServices.hightRateMedicineServices();
+  sendResponse(res, {
+    status: 200,
+    message: "Get High Rate Medicne",
+    data: result,
+  });
+});
 
-const highRatePriceMedicineControler = catchAsyncFun(async(req, res)=>{
-  const result = await medicineServices.hightRateMedicineServices()
-  sendResponse(res, 
-    {
-      status: 200,
-      message: "Get High Rate Medicne",
-      data: result,
-    
-  })
-})
+const makeDiscountMedicineControler = catchAsyncFun(async (req, res) => {
+  const { medicineId, discount } = req.body;
+  const result = await medicineServices.makeDiscountMedicineServices(
+    medicineId,
+    discount
+  );
+  sendResponse(res, {
+    status: 200,
+    message: "set All Discount medicine",
+    data: result,
+  });
+});
+
+const discountMedicineControler = catchAsyncFun(async (req, res) => {
+  const result = await medicineServices.discountMedicineServices();
+  sendResponse(res, {
+    status: 200,
+    message: "Get All Discount medicine",
+    data: result,
+  });
+});
 export const medicineControler = {
   createMedicineControler,
   getAllMedicineControler,
@@ -110,5 +129,7 @@ export const medicineControler = {
   medicineDeleteServices,
   filterMedicineControler,
   medicineSearchControler,
-  highRatePriceMedicineControler
+  highRatePriceMedicineControler,
+  discountMedicineControler,
+  makeDiscountMedicineControler,
 };
