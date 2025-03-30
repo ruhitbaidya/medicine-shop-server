@@ -33,7 +33,13 @@ router.delete(
 );
 router.patch(
   "/discount-medicine-set",
+  adminverifyUser,
   medicineControler.makeDiscountMedicineControler
+);
+router.patch(
+  "/discount-medicine-remove",
+  adminverifyUser,
+  medicineControler.removeDiscountMedicineControler
 );
 router.get("/discount-medicine", medicineControler.discountMedicineControler);
 router.get("/search/:text", medicineControler.medicineSearchControler);

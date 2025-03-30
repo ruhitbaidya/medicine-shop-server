@@ -113,6 +113,18 @@ const makeDiscountMedicineControler = catchAsyncFun(async (req, res) => {
   });
 });
 
+const removeDiscountMedicineControler = catchAsyncFun(async (req, res) => {
+  const { medicineId } = req.body;
+  const result = await medicineServices.removeDiscountMedicineServices(
+    medicineId
+  );
+  sendResponse(res, {
+    status: 200,
+    message: "Remove All Discount medicine",
+    data: result,
+  });
+});
+
 const discountMedicineControler = catchAsyncFun(async (req, res) => {
   const result = await medicineServices.discountMedicineServices();
   sendResponse(res, {
@@ -132,4 +144,5 @@ export const medicineControler = {
   highRatePriceMedicineControler,
   discountMedicineControler,
   makeDiscountMedicineControler,
+  removeDiscountMedicineControler
 };
