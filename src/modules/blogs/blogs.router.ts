@@ -14,7 +14,7 @@ router.post(
 );
 
 router.get("/get-all-blogs", blogControler.getAllBlogsControler);
-router.get("/get-singal-blogs/:id", blogControler.getAllBlogsControler);
+router.get("/get-singal-blogs/:id", blogControler.getSingalBlogControler);
 
 router.delete(
   "/delete-blog/:id",

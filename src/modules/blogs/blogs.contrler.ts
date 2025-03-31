@@ -21,6 +21,15 @@ const getAllBlogsControler = catchAsyncFun(async (req, res) => {
   });
 });
 
+const getSingalBlogControler = catchAsyncFun(async (req, res) => {
+  const id = req.params.id;
+  const result = await blogModel.findOne({ _id: id });
+  sendResponse(res, {
+    status: 200,
+    message: "Delete Blogs",
+    data: result,
+  });
+});
 const deleteBlogsControler = catchAsyncFun(async (req, res) => {
   const id = req.params.id;
   const result = await blogServices.deleteBlogsServices(id);
@@ -47,4 +56,5 @@ export const blogControler = {
   getAllBlogsControler,
   deleteBlogsControler,
   updateBlogsControler,
+  getSingalBlogControler,
 };
