@@ -12,5 +12,5 @@ const router = express_1.default.Router();
 router.post("/create-suvscribe", (0, userValidation_1.validateSchema)(subscribe_validation_1.subscribeValidationSchema), subscribe_cotroler_1.subscribeControler.createSubscribeControler);
 router.get("/get-all-subscribe", subscribe_cotroler_1.subscribeControler.getAllSubscribeControler);
 router.get("/get-singal-subscribe/:id", subscribe_cotroler_1.subscribeControler.getSingalSubscribeControler);
-router.delete("/delete-suvscribe/:id", subscribe_cotroler_1.subscribeControler.deleteSubscribeControler);
+router.delete("/delete-subscribe/:id", subscribe_cotroler_1.subscribeControler.deleteSubscribeControler);
 exports.subscribeRouter = router;

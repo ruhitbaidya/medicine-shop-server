@@ -49,11 +49,18 @@ const hightRateMedicineServices = async () => {
     const result = await medicineModel_1.medicineModel.find(query).limit(4);
     return result;
 };
-const makeDiscountMedicineServices = async (medicineId, discount) => {
+const makeDiscountMedicineServices = async (medicineId, discounts) => {
     if (!medicineId || medicineId.length === 0) {
         throw new Error("Does not send any product id");
     }
-    const result = await medicineModel_1.medicineModel.updateMany({ _id: { $in: medicineId } }, { $set: { discountPercentage: discount, discount: true } });
+    const result = await medicineModel_1.medicineModel.updateMany({ _id: { $in: medicineId } }, { $set: { discountPercentage: Number(discounts), discount: true } });
+    return result;
+};
+const removeDiscountMedicineServices = async (medicineId) => {
+    if (!medicineId || medicineId.length === 0) {
+        throw new Error("Does not send any product id");
+    }
+    const result = await medicineModel_1.medicineModel.updateMany({ _id: { $in: medicineId } }, { $set: { discountPercentage: 0, discount: false } });
     return result;
 };
 const discountMedicineServices = async () => {
@@ -68,4 +75,5 @@ exports.medicineServices = {
     hightRateMedicineServices,
     discountMedicineServices,
     makeDiscountMedicineServices,
+    removeDiscountMedicineServices
 };

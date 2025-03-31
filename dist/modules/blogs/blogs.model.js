@@ -5,19 +5,19 @@ const mongoose_1 = require("mongoose");
 const blogSchema = new mongoose_1.Schema({
     image: {
         type: String,
-        required: true
+        required: true,
     },
     title: {
         type: String,
-        required: true
+        required: true,
     },
     description: {
         type: String,
-        required: true
+        required: true,
     },
     author: {
         type: String,
-        required: true
-    }
+        required: true,
+    },
 }, { timestamps: true });
 exports.blogModel = (0, mongoose_1.model)("blogs", blogSchema);

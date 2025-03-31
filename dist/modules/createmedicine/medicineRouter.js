@@ -16,7 +16,8 @@ router.get("/get-medicine", midicine_controler_1.medicineControler.getAllMedicin
 router.get("/getSingalMedicine/:id", midicine_controler_1.medicineControler.getSingalMedicineControler);
 router.post("/filter", midicine_controler_1.medicineControler.filterMedicineControler);
 router.delete("/delete-medicne/:id", adminTokenVerify_1.adminverifyUser, midicine_controler_1.medicineControler.medicineDeleteServices);
-router.patch("/discount-medicine-set", midicine_controler_1.medicineControler.makeDiscountMedicineControler);
+router.patch("/discount-medicine-set", adminTokenVerify_1.adminverifyUser, midicine_controler_1.medicineControler.makeDiscountMedicineControler);
+router.patch("/discount-medicine-remove", adminTokenVerify_1.adminverifyUser, midicine_controler_1.medicineControler.removeDiscountMedicineControler);
 router.get("/discount-medicine", midicine_controler_1.medicineControler.discountMedicineControler);
 router.get("/search/:text", midicine_controler_1.medicineControler.medicineSearchControler);
 router.get("/get-hight-price-medicine", midicine_controler_1.medicineControler.highRatePriceMedicineControler);
