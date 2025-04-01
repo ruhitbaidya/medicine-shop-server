@@ -10,6 +10,7 @@ const medicineRouter_1 = require("../modules/createmedicine/medicineRouter");
 const payment_router_1 = require("../modules/payment/payment.router");
 const blogs_router_1 = require("../modules/blogs/blogs.router");
 const subscribe_router_1 = require("../modules/subscribe/subscribe.router");
+const admin_router_controler_1 = require("../modules/admin/admin.router.controler");
 const rootRouter = express_1.default.Router();
 const routes = [
     {
@@ -35,6 +36,10 @@ const routes = [
     {
         path: "/",
         rout: subscribe_router_1.subscribeRouter,
+    },
+    {
+        path: "/",
+        rout: admin_router_controler_1.chartRouter,
     },
 ];
 routes.forEach((item) => rootRouter.use(`/api/v1${item.path}`, item.rout));

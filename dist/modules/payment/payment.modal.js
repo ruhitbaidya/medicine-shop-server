@@ -41,6 +41,10 @@ const OrderSchema = new mongoose_1.Schema({
         type: String,
         required: true,
     },
+    payment: {
+        type: Number,
+        required: true,
+    },
     shippingAddress: ShippingAddr,
     user: {
         type: mongoose_1.Schema.Types.ObjectId,
