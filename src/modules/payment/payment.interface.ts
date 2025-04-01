@@ -22,6 +22,7 @@ export type TshippingAdd = {
 export type TOrderInterface = {
   medicine: MedicineId[];
   orderId: string;
+  payment: number;
   shippingAddress: TshippingAdd;
   user: Types.ObjectId;
   status?: "pending" | "process" | "shipping" | "reject" | "success";

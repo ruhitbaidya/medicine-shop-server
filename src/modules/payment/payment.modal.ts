@@ -43,6 +43,10 @@ const OrderSchema = new Schema<TOrderInterface>(
       type: String,
       required: true,
     },
+    payment: {
+      type: Number,
+      required: true,
+    },
     shippingAddress: ShippingAddr,
     user: {
       type: Schema.Types.ObjectId,
