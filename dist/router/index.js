@@ -11,6 +11,7 @@ const payment_router_1 = require("../modules/payment/payment.router");
 const blogs_router_1 = require("../modules/blogs/blogs.router");
 const subscribe_router_1 = require("../modules/subscribe/subscribe.router");
 const admin_router_controler_1 = require("../modules/admin/admin.router.controler");
+const review_router_1 = require("../modules/productReview/review.router");
 const rootRouter = express_1.default.Router();
 const routes = [
     {
@@ -40,6 +41,10 @@ const routes = [
     {
         path: "/",
         rout: admin_router_controler_1.chartRouter,
+    },
+    {
+        path: "/",
+        rout: review_router_1.productReviewRouter,
     },
 ];
 routes.forEach((item) => rootRouter.use(`/api/v1${item.path}`, item.rout));

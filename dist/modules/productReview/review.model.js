@@ -14,6 +14,7 @@ const reviewSchema = new mongoose_1.Schema({
     pid: {
         type: mongoose_1.Schema.ObjectId,
         required: true,
+        ref: "medicine"
     },
     rating: {
         type: Number,

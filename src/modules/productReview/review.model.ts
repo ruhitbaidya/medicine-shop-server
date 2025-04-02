@@ -13,6 +13,7 @@ const reviewSchema = new Schema(
     pid: {
       type: Schema.ObjectId,
       required: true,
+      ref : "medicine"
     },
     rating: {
       type: Number,
