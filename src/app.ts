@@ -7,13 +7,10 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
 app.get("/", (req, res) => {
   res.send({ message: "This Is My Get Request" });
 });
-
 app.use(rootRouter);
-
 const globalError = (
   err: any,
   req: Request,

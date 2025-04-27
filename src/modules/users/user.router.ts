@@ -12,7 +12,6 @@ router.post(
   validateSchema(userValidation),
   userControler.createUserControler
 );
-
 router.get("/getUser/:email", userControler.getSiUserControler);
 router.get(
   "/overview",
